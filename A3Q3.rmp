@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.2.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.2.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="legacy:read_model" compatibility="9.2.000" expanded="true" height="68" name="Model TrgB" width="90" x="179" y="136">
+        <parameter key="model_file" value="C:\Users\parme\OneDrive\Desktop\UIC\IDS 572 - Data Mining\Assignment 3\IDS 572 Data Mining Assignment -3 (AS)\BDM Assignment 3\BDM Assignment 3\Writing Models\Target B Model.mod"/>
+      </operator>
+      <operator activated="false" class="performance_binominal_classification" compatibility="9.2.000" expanded="true" height="82" name="Performance" width="90" x="447" y="34">
+        <parameter key="main_criterion" value="first"/>
+        <parameter key="accuracy" value="true"/>
+        <parameter key="classification_error" value="false"/>
+        <parameter key="kappa" value="false"/>
+        <parameter key="AUC (optimistic)" value="false"/>
+        <parameter key="AUC" value="false"/>
+        <parameter key="AUC (pessimistic)" value="false"/>
+        <parameter key="precision" value="false"/>
+        <parameter key="recall" value="false"/>
+        <parameter key="lift" value="false"/>
+        <parameter key="fallout" value="false"/>
+        <parameter key="f_measure" value="false"/>
+        <parameter key="false_positive" value="false"/>
+        <parameter key="false_negative" value="false"/>
+        <parameter key="true_positive" value="false"/>
+        <parameter key="true_negative" value="false"/>
+        <parameter key="sensitivity" value="false"/>
+        <parameter key="specificity" value="false"/>
+        <parameter key="youden" value="false"/>
+        <parameter key="positive_predictive_value" value="false"/>
+        <parameter key="negative_predictive_value" value="false"/>
+        <parameter key="psep" value="false"/>
+        <parameter key="skip_undefined_labels" value="true"/>
+        <parameter key="use_example_weights" value="true"/>
+      </operator>
+      <operator activated="true" class="legacy:read_model" compatibility="9.2.000" expanded="true" height="68" name="Model TrgD" width="90" x="313" y="238">
+        <parameter key="model_file" value="C:\Users\parme\OneDrive\Desktop\UIC\IDS 572 - Data Mining\Assignment 3\IDS 572 Data Mining Assignment -3 (AS)\BDM Assignment 3\BDM Assignment 3\Writing Models\Final Model from Assignment 3.mod"/>
+      </operator>
+      <operator activated="false" class="aggregate" compatibility="8.2.000" expanded="true" height="82" name="Aggregate" width="90" x="715" y="136">
+        <parameter key="use_default_aggregation" value="false"/>
+        <parameter key="attribute_filter_type" value="all"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value=""/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+        <parameter key="default_aggregation_function" value="average"/>
+        <list key="aggregation_attributes">
+          <parameter key="profit" value="sum"/>
+          <parameter key="TrgDonlyProfit" value="sum"/>
+        </list>
+        <parameter key="group_by_attributes" value=""/>
+        <parameter key="count_all_combinations" value="false"/>
+        <parameter key="only_distinct" value="false"/>
+        <parameter key="ignore_missings" value="true"/>
+      </operator>
+      <operator activated="true" class="read_csv" compatibility="9.2.000" expanded="true" height="68" name="Read CSV" width="90" x="45" y="34">
+        <parameter key="csv_file" value="C:\Users\parme\OneDrive\Desktop\A2Q3_DS.csv"/>
+        <parameter key="column_separators" value=";"/>
+        <parameter key="trim_lines" value="false"/>
+        <parameter key="use_quotes" value="true"/>
+        <parameter key="quotes_character" value="&quot;"/>
+        <parameter key="escape_character" value="\"/>
+        <parameter key="skip_comments" value="false"/>
+        <parameter key="comment_characters" value="#"/>
+        <parameter key="starting_row" value="1"/>
+        <parameter key="parse_numbers" value="true"/>
+        <parameter key="decimal_character" value="."/>
+        <parameter key="grouped_digits" value="false"/>
+        <parameter key="grouping_character" value=","/>
+        <parameter key="infinity_representation" value=""/>
+        <parameter key="date_format" value=""/>
+        <parameter key="first_row_as_names" value="true"/>
+        <list key="annotations"/>
+        <parameter key="time_zone" value="SYSTEM"/>
+        <parameter key="locale" value="English (United States)"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="read_all_values_as_polynominal" value="false"/>
+        <list key="data_set_meta_data_information"/>
+        <parameter key="read_not_matching_values_as_missings" value="true"/>
+        <parameter key="datamanagement" value="double_array"/>
+        <parameter key="data_management" value="auto"/>
+      </operator>
+      <operator activated="true" class="select_attributes" compatibility="9.2.000" expanded="true" height="82" name="Select Attributes (3)" width="90" x="179" y="34">
+        <parameter key="attribute_filter_type" value="subset"/>
+        <parameter key="attribute" value=""/>
+        <parameter key="attributes" value="ADI|AGE|AGE902|AGE904|AGE906|CONTROLN|EC3|EIC15|ETHC1|ETHC5|GENDER|HC5|HHAS1|HHAS3|HHD_PCA1|HHN5|HHN6|HHP1|HHP2|HUPA3|HUPA5|HUPA7|HV1|HV2|HV3|HVP4|LFC9|LOCALGOV|MARR4|MAXRAMNT|MC1|NUMPRM12|OCC4|OCC5|OCC6|OEDC7|PCA_6_14_IC1|PCA_6_14_IC2|PCA_ANS3|PCA_CH_AGEC1|PCA_CH_AGEC4|PCA_DW1|PCA_ETH2|PCA_ETH3|PCA_MB_MAG_PUB1|POP902|RHP4|RP1|SEC5|STATEGOV|TPE13|VC3|VIETVETS|avgcresp|maxToMinGiftRatio|pepstrfl|TCODE|STATE|HPHONE_D|ETH5|ETH1|DOB|DATASRCE|CLUSTER"/>
+        <parameter key="use_except_expression" value="false"/>
+        <parameter key="value_type" value="attribute_value"/>
+        <parameter key="use_value_type_exception" value="false"/>
+        <parameter key="except_value_type" value="time"/>
+        <parameter key="block_type" value="attribute_block"/>
+        <parameter key="use_block_type_exception" value="false"/>
+        <parameter key="except_block_type" value="value_matrix_row_start"/>
+        <parameter key="invert_selection" value="false"/>
+        <parameter key="include_special_attributes" value="false"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.2.000" expanded="true" height="82" name="Apply Model" width="90" x="313" y="34">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="generate_attributes" compatibility="9.2.000" expanded="true" height="82" name="Generate Attributes (2)" width="90" x="313" y="136">
+        <list key="function_descriptions">
+          <parameter key="confResponse" value="[confidence(1)]"/>
+          <parameter key="confResp" value="[confidence(1)]"/>
+          <parameter key="DonorPred" value="[prediction(TARGET_B)]"/>
+        </list>
+        <parameter key="keep_all" value="true"/>
+      </operator>
+      <operator activated="true" class="apply_model" compatibility="9.2.000" expanded="true" height="82" name="Apply Model (2)" width="90" x="447" y="136">
+        <list key="application_parameters"/>
+        <parameter key="create_view" value="false"/>
+      </operator>
+      <operator activated="true" class="generate_attributes" compatibility="9.2.000" expanded="true" height="82" name="Generate Attributes (4)" width="90" x="514" y="238">
+        <list key="function_descriptions">
+          <parameter key="expDonation" value="[confResponse]*[prediction(TARGET_D)]"/>
+          <parameter key="TARGET_D" value="[prediction(TARGET_D)]"/>
+        </list>
+        <parameter key="keep_all" value="true"/>
+      </operator>
+      <operator activated="true" class="generate_attributes" compatibility="9.2.000" expanded="true" height="82" name="Generate Attributes (3)" width="90" x="581" y="136">
+        <list key="function_descriptions">
+          <parameter key="prospectDonor" value="if(expDonation&gt;.68,1, 0)"/>
+          <parameter key="TrgDonlyProfit" value="if(TARGET_D&gt;0,TARGET_D-0.68,0)"/>
+        </list>
+        <parameter key="keep_all" value="true"/>
+      </operator>
+      <operator activated="true" class="write_excel" compatibility="9.2.000" expanded="true" height="82" name="Write Excel" width="90" x="648" y="238">
+        <parameter key="excel_file" value="/Users/adityabhandari/Desktop/IDS572/Assignments/Assignment 3/final App2 model profit.xlsx"/>
+        <parameter key="file_format" value="xlsx"/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <parameter key="sheet_name" value="RapidMiner Data"/>
+        <parameter key="date_format" value="yyyy-MM-dd HH:mm:ss"/>
+        <parameter key="number_format" value="#.0"/>
+      </operator>
+      <connect from_op="Model TrgB" from_port="output" to_op="Apply Model" to_port="model"/>
+      <connect from_op="Model TrgD" from_port="output" to_op="Apply Model (2)" to_port="model"/>
+      <connect from_op="Read CSV" from_port="output" to_op="Select Attributes (3)" to_port="example set input"/>
+      <connect from_op="Select Attributes (3)" from_port="example set output" to_op="Apply Model" to_port="unlabelled data"/>
+      <connect from_op="Apply Model" from_port="labelled data" to_op="Generate Attributes (2)" to_port="example set input"/>
+      <connect from_op="Generate Attributes (2)" from_port="example set output" to_op="Apply Model (2)" to_port="unlabelled data"/>
+      <connect from_op="Apply Model (2)" from_port="labelled data" to_op="Generate Attributes (4)" to_port="example set input"/>
+      <connect from_op="Generate Attributes (4)" from_port="example set output" to_op="Generate Attributes (3)" to_port="example set input"/>
+      <connect from_op="Generate Attributes (3)" from_port="example set output" to_op="Write Excel" to_port="input"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <description align="left" color="yellow" colored="false" height="84" resized="true" width="163" x="32" y="349">Submitted By :&lt;br&gt;Parmeen Bindra&lt;br&gt;Honey Salve&lt;br&gt;Sooraj Holla</description>
+    </process>
+  </operator>
+</process>
